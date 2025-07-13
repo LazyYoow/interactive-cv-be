@@ -5,7 +5,7 @@ import cors from 'cors'
 const app = express()
 app.use(cors()) // ← tambahkan ini supaya frontend bisa akses backend
 
-aapp.get('/education', (req, res) => {
+app.get('/education', (req, res) => {
   res.status(200).json([
     { id: 1, school: 'Universitas Amikom', year: '2025' },
     { id: 2, school: 'SMA N 1 Contoh', year: '2021' }
