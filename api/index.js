@@ -5,7 +5,6 @@ import serverless from 'serverless-http'
 
 const app = express()
 
-// Endpoint /api/education
 app.get('/api/education', (req, res) => {
   res.status(200).json([
     { id: 1, school: 'Universitas Amikom', year: '2025' },
@@ -13,16 +12,19 @@ app.get('/api/education', (req, res) => {
   ])
 })
 
-// Endpoint /api/skills
 app.get('/api/skills', (req, res) => {
   res.status(200).json([
-    { id: 1, skill: 'JavaScript' },
-    { id: 2, skill: 'Vue.js' },
-    { id: 3, skill: 'Tailwind CSS' }
+    { name: 'Vue.js', level: 'Mahir' },
+    { name: 'JavaScript', level: 'Mahir' },
+    { name: 'Tailwind CSS', level: 'Mahir' },
+    { name: 'Node.js', level: 'Menengah' },
+    { name: 'Express.js', level: 'Menengah' },
+    { name: 'PostgreSQL', level: 'Menengah' },
+    { name: 'Git & GitHub', level: 'Mahir' },
+    { name: 'HTML5 & CSS3', level: 'Mahir' },
   ])
 })
 
-// Endpoint /api/projects
 app.get('/api/projects', (req, res) => {
   res.status(200).json([
     { id: 1, title: 'Final Project Pemrograman Web' },
@@ -30,5 +32,4 @@ app.get('/api/projects', (req, res) => {
   ])
 })
 
-// WAJIB: export handler
 export const handler = serverless(app)
