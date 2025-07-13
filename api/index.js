@@ -1,18 +1,17 @@
-// api/index.js
-
 import express from 'express'
 import serverless from 'serverless-http'
 
 const app = express()
 
-app.get('/api/education', (req, res) => {
+// PAKAI PREFIX ROOT SAJA!
+app.get('/education', (req, res) => {
   res.status(200).json([
     { id: 1, school: 'Universitas Amikom', year: '2025' },
     { id: 2, school: 'SMA N 1 Contoh', year: '2021' }
   ])
 })
 
-app.get('/api/skills', (req, res) => {
+app.get('/skills', (req, res) => {
   res.status(200).json([
     { name: 'Vue.js', level: 'Mahir' },
     { name: 'JavaScript', level: 'Mahir' },
@@ -25,7 +24,7 @@ app.get('/api/skills', (req, res) => {
   ])
 })
 
-app.get('/api/projects', (req, res) => {
+app.get('/projects', (req, res) => {
   res.status(200).json([
     { id: 1, title: 'Final Project Pemrograman Web' },
     { id: 2, title: 'Final Project AMCC' }
