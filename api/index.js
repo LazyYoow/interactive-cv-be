@@ -1,9 +1,13 @@
+// api/index.js
+
 import express from 'express'
 import serverless from 'serverless-http'
 import cors from 'cors'
 
 const app = express()
-app.use(cors()) // ← tambahkan ini supaya frontend bisa akses backend
+app.use(cors()) // izinkan akses CORS dari frontend
+
+// Semua route prefiksinya akan otomatis /api/... karena pakai vercel serverless
 
 app.get('/education', (req, res) => {
   res.status(200).json([
@@ -30,6 +34,10 @@ app.get('/projects', (req, res) => {
     { id: 1, title: 'Final Project Pemrograman Web' },
     { id: 2, title: 'Final Project AMCC' }
   ])
+})
+
+app.get('/', (req, res) => {
+  res.send('API is running! Try /api/skills or /api/education')
 })
 
 export default serverless(app)
